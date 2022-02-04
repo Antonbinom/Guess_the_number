@@ -6,28 +6,39 @@ const game = function () {
 	// let number = Math.ceil(Math.random() * 100);
 	let number = 5;
 	let tries = 2;
+
 	const checkTries = function () {
 		if (tries < 1) {
-			if (confirm('Число попыток закончилось! Попробуешь еще разок?;)')) {
-				alert('Эээхххх, люблю азартных!');
-				game();
-			} else {
-				alert('Ты заходи, если шо!');
+			confirm('Число попыток закончилось! Попробуешь еще разок?');
+			switch (true) {
+				case 1:
+					alert('Эээхххх, люблю азартных!');
+					game();
+					break;
+				case 0:
+					alert('Ты заходи, если шо!');
+					break;
 			}
+			// if (true) {
+			// 	alert('Эээхххх, люблю азартных!');
+			// 	game();
+			// } else {
+			// 	alert('Ты заходи, если шо!');
+			// }
 		}
 	};
 
 	function question() {
-		let num = prompt('Введите число от 1 до 10');
+		let num = prompt('Введи число от 1 до 10');
 		if (num == number) {
-			if (confirm('Поздравляю! Точно в дырочку, всмысле в яблочко! Не желаешь попробовать еще раз?')) {
+			if (confirm('Поздравляю! Ты угадао! Не желаешь попробовать еще раз?')) {
 				alert('Эээхххх, люблю азартных!');
 				game();
 			} else {
 				alert('Ты заходи, если шо!');
 			}
 		} else if (num == 0 || num > 10) {
-			alert('Сказал же, число от 1 до 10, ни больше, ни меньше!');
+			alert('Введи число от 1 до 10, ни больше, ни меньше!');
 			question();
 		} else if (num < number && num != null) {
 			alert('Слишком мало! Осталось ' + (tries - 1) + ' попыток.');
@@ -40,9 +51,9 @@ const game = function () {
 			checkTries();
 			question();
 		} else if (num === null) {
-			alert('Ага, здаешься?!');
+			alert('Конец игры!');
 		} else {
-			alert('Чииисло введи!');
+			alert('Введи число!');
 			question();
 		}
 	}
@@ -50,5 +61,4 @@ const game = function () {
 	console.log(tries);
 };
 
-let result = game();
-console.log(result);
+game();
