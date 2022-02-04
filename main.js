@@ -6,28 +6,25 @@ const game = function () {
 
 	function question() {
 		let num = prompt('Введите число от 1 до 10');
-		if (num === number) {
+		if (num == number) {
 			alert('Угадал');
-		} else if (num < number) {
+		} else if (num == 0) {
+			alert('Не годится!');
+			question();
+		} else if (num < number && num != null) {
 			alert('Слишком мало!');
-			console.log(num);
 			question();
 		} else if (num > number) {
 			alert('Слишком много!');
 			question();
-		} else if (num !== Number) {
+		} else if (num === null) {
+			alert('Конец игры!');
+		} else {
 			alert('Введите число!');
 			question();
-		} else if (num === null) {
-			alert('Игра закончена');
-		} else {
-			alert('Угадал');
-			console.log(num);
 		}
-		console.log(num);
 	}
 	question();
 };
-
 
 console.log(game());
