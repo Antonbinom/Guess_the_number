@@ -1,11 +1,11 @@
 'use strict';
 
 const game = function () {
-	// let number = Math.ceil(Math.random() * 100);
-	let number = 10;
+	let number = Math.ceil(Math.random() * 100);
+	// let number = 10;
 
 	function question() {
-		let num = prompt('Введите число от 1 до 10');
+		let num = prompt('Введите число от 1 до 100');
 		if (num == number) {
 			alert('Угадал');
 		} else if (num == 0) {
