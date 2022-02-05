@@ -1,7 +1,7 @@
 'use strict';
 
 const game = function () {
-	let number = Math.ceil(Math.random() * 10);
+	let number = Math.ceil(Math.random() * 100);
 	let tries = 10;
 
 	const checkTries = function () {
@@ -18,7 +18,7 @@ const game = function () {
 	};
 
 	function question() {
-		let num = prompt('Введи число от 1 до 10');
+		let num = prompt('Введи число от 1 до 100');
 		if (num == number) {
 			let victory = confirm('Поздравляю! Ты угадал! Не желаешь попробовать еще раз?');
 			if (victory == true) {
@@ -26,7 +26,7 @@ const game = function () {
 			} else {
 				alert('Ты заходи, если шо!');
 			}
-		} else if (num == 0 || num > 10) {
+		} else if (num == 0 || num > 100) {
 			alert('Введи число от 1 до 10, ни больше, ни меньше!');
 			question();
 		} else if (num < number && num != null) {
