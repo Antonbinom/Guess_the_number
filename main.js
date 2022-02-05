@@ -1,38 +1,27 @@
 'use strict';
 
-'use strict';
-
 const game = function () {
-	// let number = Math.ceil(Math.random() * 100);
-	let number = 5;
-	let tries = 2;
+	let number = Math.ceil(Math.random() * 10);
+	let tries = 10;
 
 	const checkTries = function () {
-		if (tries < 1) {
-			confirm('Число попыток закончилось! Попробуешь еще разок?');
-			switch (true) {
-				case 1:
-					alert('Эээхххх, люблю азартных!');
-					game();
-					break;
-				case 0:
-					alert('Ты заходи, если шо!');
-					break;
+		if (tries == 0) {
+			let tryAgain = confirm('Число попыток закончилось! Попробуешь еще разок?');
+			if (tryAgain == true) {
+				game();
+			} else {
+				alert('Ты заходи, если шо!');
 			}
-			// if (true) {
-			// 	alert('Эээхххх, люблю азартных!');
-			// 	game();
-			// } else {
-			// 	alert('Ты заходи, если шо!');
-			// }
+		} else {
+			question();
 		}
 	};
 
 	function question() {
 		let num = prompt('Введи число от 1 до 10');
 		if (num == number) {
-			if (confirm('Поздравляю! Ты угадао! Не желаешь попробовать еще раз?')) {
-				alert('Эээхххх, люблю азартных!');
+			let victory = confirm('Поздравляю! Ты угадал! Не желаешь попробовать еще раз?');
+			if (victory == true) {
 				game();
 			} else {
 				alert('Ты заходи, если шо!');
@@ -44,12 +33,10 @@ const game = function () {
 			alert('Слишком мало! Осталось ' + (tries - 1) + ' попыток.');
 			tries--;
 			checkTries();
-			question();
 		} else if (num > number) {
 			alert('Слишком много!  Осталось ' + (tries - 1) + ' попыток.');
 			tries--;
 			checkTries();
-			question();
 		} else if (num === null) {
 			alert('Конец игры!');
 		} else {
@@ -58,7 +45,7 @@ const game = function () {
 		}
 	}
 	question();
-	console.log(tries);
+	console.log(number);
 };
 
 game();
